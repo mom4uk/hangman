@@ -123,13 +123,13 @@ func validateInput(input *string, userAnswer []rune) (bool, string) {
 
 func printCurrentGameState(movesCounter *int, errorsCounter *int) {
 	var pictures = []string{
-		"assets/firstMove.txt",
-		"assets/secondMove.txt",
-		"assets/thirdMove.txt",
-		"assets/fourthMove.txt",
-		"assets/fifthMove.txt",
-		"assets/sixthMove.txt",
-		"assets/seventhMove.txt",
+		"assets/first_move.txt",
+		"assets/second_move.txt",
+		"assets/third_move.txt",
+		"assets/fourth_move.txt",
+		"assets/fifth_move.txt",
+		"assets/sixth_move.txt",
+		"assets/seventh_move.txt",
 	}
 	path := pictures[*movesCounter]
 	text, _ := os.ReadFile(path)
