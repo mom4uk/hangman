@@ -63,11 +63,11 @@ func makeMove(movesCounter *int, userAnswer *[]rune, rightAnswer string, errorsC
 	}
 
 	runeInput := []rune(input)[0]
-	indexes := findAllIndexes(rightAnswer, runeInput)
+	indexes := utilities.FindAllIndexes(rightAnswer, runeInput)
 	isCharRight := len(indexes) != 0
 
 	if isCharRight {
-		replaceUnderscoreByChar(*userAnswer, runeInput, indexes)
+		utilities.ReplaceUnderscoreByChar(*userAnswer, runeInput, indexes)
 	} else {
 		fmt.Print("Этой буквы нет\n")
 		*errorsCounter += 1
@@ -161,23 +161,4 @@ func doesUserWin(userAnswer *[]rune, rightAnswer string) bool {
 
 func doesUserLose(movesCounter *int, numOfAvaliableMoves int) bool {
 	return *movesCounter == numOfAvaliableMoves
-}
-
-func findAllIndexes(text string, char rune) []int {
-	result := []int{}
-	runes := []rune(text)
-	for i, textChar := range runes {
-		if char == textChar {
-			result = append(result, i)
-		}
-	}
-	return result
-}
-
-func replaceUnderscoreByChar(text []rune, char rune, indexes []int) string {
-	result := text
-	for _, value := range indexes {
-		result[value] = char
-	}
-	return string(result)
 }

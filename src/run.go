@@ -2,7 +2,6 @@ package src
 
 import (
 	"fmt"
-	"os"
 )
 
 func Run() {
@@ -19,7 +18,8 @@ func Run() {
 	switch userInput {
 	case "start":
 		StartGame()
+		return
 	default:
-		os.Exit(0)
+		fmt.Println("Введите 'start'")
 	}
 }
